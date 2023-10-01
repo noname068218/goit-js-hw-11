@@ -11,20 +11,28 @@
     <link rel="stylesheet" href="./sass/_example.scss" />
   </head>
   <body>
-    <form class="search-form" id="search-form">
-      <input
-        type="text"
-        name="searchQuery"
-        autocomplete="off"
-        placeholder="Search images..."
-      />
-      <button type="submit">Search</button>
-    </form>
+    <header>
+      <form class="search-form" id="search-form">
+        <input
+          required
+          class="search-form-input"
+          type="text"
+          name="searchInput"
+          autocomplete="off"
+          placeholder="Search images..."
+        />
+        <button name="searchButton" type="submit" class="search-form-button">
+          Search
+        </button>
+      </form>
+    </header>
     <div class="gallery">
       <!-- Картки зображень -->
     </div>
-
-    <script type="module" src="./js/markup.js"></script>
+    <button type="button" hidden="true" class="load-more">Load more</button>
+    <p class="final-message" hidden="true">
+      We're sorry, but you've reached the end of search results.
+    </p>
     <script type="module" src="./js/index.js"></script>
   </body>
 </html>
