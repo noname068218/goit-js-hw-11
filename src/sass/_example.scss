@@ -1,104 +1,251 @@
-header {
-    width: 100%;
-    position: fixed;
-    height: 72px;
-    background-color: #5e37a7;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-
-body {
-    position: sticky;
+ul{
+    list-style: none;
 }
 
+a{
+    text-decoration: none;
+}
+
+img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.container{
+    width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+.gallery{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.is-hidden{
+    display: none;
+}
 
 .load-more {
-    margin-bottom: 40px;
-    margin-top: 40px;
-    font-weight: 600;
-    color: white;
-    cursor: pointer;
-    font-size: 17px;
-    background-color: #5e37a7;
-    margin-left: 44%;
-    width: 200px;
-    height: 60px;
-    border-radius: 4px;
     border: none;
-    border: 2px solid black;
-    outline: none;
-    transition: background-color, 300ms;
-}
+    color: #fff;
+    background-image: linear-gradient(30deg, #0400ff, #4ce3f7);
+    border-radius: 20px;
+    background-size: 100% auto;
+    font-family: inherit;
+    font-size: 17px;
+    padding: 0.6em 1.5em;
+    display: block;
+    margin: 20px auto;
 
+
+}
+.load-more.is-hidden{
+    display: none;
+}
 .load-more:hover {
-    background-color: #462686;
+    background-position: right center;
+    background-size: 200% auto;
+    -webkit-animation: pulse 2s infinite;
+    animation: pulse512 1.5s infinite;
 }
 
-.search-form-input {
-    padding-right: 10px;
-    padding-left: 10px;
-    width: 330px;
-    height: 40px;
-    border-radius: 4px;
-    border: none;
-    outline: none;
-    border: 2px solid black;
-}
+@keyframes pulse512 {
+    0% {
+        box-shadow: 0 0 0 0 #05bada66;
+    }
 
-.search-form-button {
-    font-weight: 600;
-    cursor: pointer;
-    font-size: 17px;
-    color: rgb(0, 0, 0);
-    background-color: rgb(255, 255, 255);
-    margin-left: 15px;
-    width: 100px;
-    height: 35px;
-    border-radius: 4px;
-    border: none;
-    border: 2px solid black;
-    outline: none;
-    transition: background-color 200ms;
-}
+    70% {
+        box-shadow: 0 0 0 10px rgb(218 103 68 / 0%);
+    }
 
-.search-form-button:hover {
-    background-color: rgb(185, 185, 185);
+    100% {
+        box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
+    }
 }
-
-.gallery {
-    padding-top: 100px;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
+.wrapper-loader{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    background-color: #afafafce;
     display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
-}
-
-.info {
-    align-items: center;
     justify-content: center;
-    gap: 40px;
-    display: flex;
+    align-items: center;
+
+}
+.wrapper-loader.is-hidden{
+    display: none;
+}
+.🤚 {
+    --skin-color: #E4C560;
+    --tap-speed: 0.6s;
+    --tap-stagger: 0.1s;
+    position: relative;
+    width: 80px;
+    height: 60px;
+    margin-left: 80px;
 }
 
-.photo-card {
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-}
-
-.final-message {
-    padding-top: 30px;
-    padding-bottom: 40px;
-    left: 31%;
-    top: 100%;
+.🤚:before {
+    content: '';
+    display: block;
+    width: 180%;
+    height: 75%;
     position: absolute;
-    font-size: 28px;
-
+    top: 70%;
+    right: 20%;
+    background-color: black;
+    border-radius: 40px 10px;
+    filter: blur(10px);
+    opacity: 0.3;
 }
 
-.photo {
-    object-fit: cover;
+.🌴 {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--skin-color);
+    border-radius: 10px 40px;
+}
+
+.👍 {
+    position: absolute;
+    width: 120%;
+    height: 38px;
+    background-color: var(--skin-color);
+    bottom: -18%;
+    right: 1%;
+    transform-origin: calc(100% - 20px) 20px;
+    transform: rotate(-20deg);
+    border-radius: 30px 20px 20px 10px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    border-left: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.👍:after {
+    width: 20%;
+    height: 60%;
+    content: '';
+    background-color: rgba(255, 255, 255, 0.3);
+    position: absolute;
+    bottom: -8%;
+    left: 5px;
+    border-radius: 60% 10% 10% 30%;
+    border-right: 2px solid rgba(0, 0, 0, 0.05);
+}
+
+.👉 {
+    position: absolute;
+    width: 80%;
+    height: 35px;
+    background-color: var(--skin-color);
+    bottom: 32%;
+    right: 64%;
+    transform-origin: 100% 20px;
+    animation-duration: calc(var(--tap-speed) * 2);
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    transform: rotate(10deg);
+}
+
+.👉:before {
+    content: '';
+    position: absolute;
+    width: 140%;
+    height: 30px;
+    background-color: var(--skin-color);
+    bottom: 8%;
+    right: 65%;
+    transform-origin: calc(100% - 20px) 20px;
+    transform: rotate(-60deg);
+    border-radius: 20px;
+}
+
+.👉:nth-child(1) {
+    animation-delay: 0;
+    filter: brightness(70%);
+    animation-name: tap-upper-1;
+}
+
+.👉:nth-child(2) {
+    animation-delay: var(--tap-stagger);
+    filter: brightness(80%);
+    animation-name: tap-upper-2;
+}
+
+.👉:nth-child(3) {
+    animation-delay: calc(var(--tap-stagger) * 2);
+    filter: brightness(90%);
+    animation-name: tap-upper-3;
+}
+
+.👉:nth-child(4) {
+    animation-delay: calc(var(--tap-stagger) * 3);
+    filter: brightness(100%);
+    animation-name: tap-upper-4;
+}
+
+@keyframes tap-upper-1 {
+
+    0%,
+    50%,
+    100% {
+        transform: rotate(10deg) scale(0.4);
+    }
+
+    40% {
+        transform: rotate(50deg) scale(0.4);
+    }
+}
+
+@keyframes tap-upper-2 {
+
+    0%,
+    50%,
+    100% {
+        transform: rotate(10deg) scale(0.6);
+    }
+
+    40% {
+        transform: rotate(50deg) scale(0.6);
+    }
+}
+
+@keyframes tap-upper-3 {
+
+    0%,
+    50%,
+    100% {
+        transform: rotate(10deg) scale(0.8);
+    }
+
+    40% {
+        transform: rotate(50deg) scale(0.8);
+    }
+}
+
+@keyframes tap-upper-4 {
+
+    0%,
+    50%,
+    100% {
+        transform: rotate(10deg) scale(1);
+    }
+
+    40% {
+        transform: rotate(50deg) scale(1);
+    }
 }
